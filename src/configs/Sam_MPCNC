@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+restore_configs
+
+export V1_VERSION=${V1_VERSION}S
+
+$CFGDIR/common/v1-base-config
+$CFGDIR/common/cnc-config
+$CFGDIR/boards/ramps
+$CFGDIR/accessories/reprap_discount_full_graphic_lcd
+$CFGDIR/accessories/no-dual-endstops
+$CFGDIR/accessories/laser
+
+opt_set X_DRIVER_TYPE "A4988"
+opt_set Y_DRIVER_TYPE "A4988"
+opt_set Z_DRIVER_TYPE "A4988"
+opt_set X_BED_SIZE "500"
+opt_set Y_BED_SIZE "500"
+opt_set SPINDLE_LASER_PWM_PIN "8"
+
+export PLATFORMIO_ENV=mega2560
