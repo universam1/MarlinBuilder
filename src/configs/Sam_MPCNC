@@ -31,7 +31,12 @@ opt_set Y_MICROSTEPS "16"
 opt_set Z_MICROSTEPS "16"
 opt_set X_BED_SIZE "380"
 opt_set Y_BED_SIZE "380"
-opt_set Z_MAX_POS "150"
+opt_set Z_MAX_POS "0"       # Der höchste Punkt ist 0
+opt_set Z_MIN_POS "-150"    # Der Tisch liegt bei -150 (an deine Maschine anpassen!)
+opt_set  Z_CLEARANCE_FOR_HOMING "0"
+
+opt_set ENCODER_PULSES_PER_STEP 4
+opt_set ENCODER_STEPS_PER_MENU_ITEM 1
 
 opt_enable \
     PSU_CONTROL\
@@ -58,5 +63,9 @@ opt_set Z_MAX_ENDSTOP_HIT_STATE "LOW"
 opt_set Z_HOME_DIR 1 # Z home to max endstop
 opt_set Z_MIN_PIN "-1"
 opt_set HOME_AXIS_ORDER Z XY # Home Z first to get it out of the way, then X and Y together to save time
+
+opt_set ST7920_DELAY_1 "DELAY_NS(400)"
+opt_set ST7920_DELAY_2 "DELAY_NS(400)"
+opt_set ST7920_DELAY_3 "DELAY_NS(400)"
 
 export PLATFORMIO_ENV=mega2560
